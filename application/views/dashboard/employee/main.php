@@ -40,17 +40,19 @@
 		       <span>My Tasks</span>
 		    </a>
 
-		  <!--   <a class="btn bg-gradient-info text-light employee-btn mt-3 p-3" href="#"> 
+
+		    <a class="btn bg-gradient-info text-light employee-btn mt-3 p-3" href="#"> 
 		       <i class="fa fa-file-alt"></i>
 		       <br>
 		       <span>Report</span>
-		    </a>  -->
+		    </a> 
 
-		  <!--   <a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
+		    <a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
 		       <i class="fa fa-file-alt"></i>
 		       <br>
 		       <span>My Schedules</span>
-		    </a>  -->
+		    </a> 
+
 	
 			 <a class="btn bg-gradient-danger text-light employee-btn mt-3 p-3" href="/auth/logout"> 
 		       <i class="fa fa-power-off"></i>
