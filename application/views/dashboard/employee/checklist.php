@@ -82,39 +82,6 @@
         ?>
 
     <?php } ?>
-
-	
-<!-- 
-	<div class="row">
-		<div class="col mt-2">
-			<div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                	<h6><strong>Opening : (6:00 - 9:30 AM) </strong></h6>
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-md font-weight-bold text-success mb-1">
-                            	<a data-toggle="collapse" href="#task2" role="button" aria-expanded="false" aria-controls="task2"> Stock Ice (Recommended)</a>
-                            </div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col">
-                                	<div class="collapse" id="task2">
-										  <div class="card card-body">
-										   		Stock Ice on water prof bacg and zip lock store in freezer.
-										  </div>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                        	 <a class="btn btn-success" href="#"> 
-						       <i class="fa fa-tasks"></i> <span>Get Task</span>
-						    </a> 
-                        </div>
-                    </div>
-                </div>
-            </div>	
-		</div>
-	</div> -->
 	<div class="row">
 		<div class="col text-center mt-3">
 			<a href="/dashboard/" class="btn btn-secondary btn-circle btn-lg">

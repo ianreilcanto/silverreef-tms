@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+date_default_timezone_set("Asia/Manila");
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +23,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
 
 $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
 $config['base_url'] = $host;
@@ -139,7 +138,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
