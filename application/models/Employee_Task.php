@@ -25,14 +25,33 @@ class Employee_Task extends CI_Model
 
     }
 
+     public function getGenTaskIdByEmp($nowDate,$empId){
+
+
+        // use in array for checking and displaying checklist task
+        $this->db->select('task_id');
+        $this->db->from('employee_task');
+        $this->db->join('task','task.id = employee_task.task_id');
+        $this->db->join('checklist','checklist.id = task.checklist_id');
+        $this->db->where('checklist.isGeneral', 1);
+        $this->db->where('created_date', $nowDate);
+        $this->db->where('employee_task.employee_id', $empId);
+
+        return $query = $this->db->get()->result_array(); 
+
+    }
+
     public function getTaskIdByDept($nowDate,$dept){
 
 
         // use in array for checking and displaying checklist task
         $this->db->select('task_id');
         $this->db->from('employee_task');
+        $this->db->join('task','task.id = employee_task.task_id');
+        $this->db->join('checklist','checklist.id = task.checklist_id');
+        $this->db->where('checklist.isGeneral', 0);
         $this->db->where('created_date', $nowDate);
-        $this->db->where('department_id', $dept);
+        $this->db->where('employee_task.department_id', $dept);
 
         return $query = $this->db->get()->result_array(); 
 
@@ -53,6 +72,7 @@ class Employee_Task extends CI_Model
 
         $this->db->select('*');
         $this->db->from('employee_task');
+        $this->db->join('task','task.id = employee_task.task_id');
         $this->db->where('created_date', $nowDate);
 
         return $query = $this->db->get()->result_array(); 

@@ -49,10 +49,7 @@ $('#add-checklist').click(function(e){
 
 	    $checklistInfo = checklistFormValidator(formvalues);
 
-	    console.log($checklistInfo);
 
-
-	   //  $tasklist = taskValidator(formvalues);
 
 	    $data = {
 	    	checklistInfo : $checklistInfo
@@ -130,9 +127,6 @@ $("#checklist-department").on("change",function(){
 
 });
 
-// $("").on("change",function(){
-	
-// });
 
 
 
@@ -146,6 +140,9 @@ function checklistFormValidator(formvalues){
 	    $scheduleType = formvalues.find("#checklist-sched-type").val();
 	    $checklistType = formvalues.find("#checklist-type").val();
 	    $checklistname = formvalues.find("#checklist-name").val();
+        $isGeneral = formvalues.find("#isGeneral").is(":checked");
+
+        console.log($isGeneral);
 
 	    $checkList = {
 
@@ -153,7 +150,8 @@ function checklistFormValidator(formvalues){
 	    		station : $station,
 	    		scheduleType : $scheduleType,
 	    		checklistType : $checklistType,
-	    		checklistname : $checklistname
+	    		checklistname : $checklistname,
+                isGeneral : $isGeneral ? 1 : 0
 
 	    }
 

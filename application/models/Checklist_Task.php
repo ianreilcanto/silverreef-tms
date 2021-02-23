@@ -15,6 +15,7 @@ class Checklist_Task extends CI_Model
             "schedule_type_id" => $checklistInfo['scheduleType'],
             "department_id" =>$checklistInfo['department'],
             "station_id" => $checklistInfo['station'],//$checklistInfo['station'],
+            "isGeneral" => $checklistInfo['isGeneral'],
             "status" => 1
         );
 
@@ -33,11 +34,39 @@ class Checklist_Task extends CI_Model
         $this->db->from('checklist');
         $this->db->join('schedule_type','schedule_type.id = checklist.schedule_type_id');
         $this->db->where('department_id', $deptId);
+        $this->db->where('checklist_type', 'daily');
         $result = $this->db->get();
 
         return $result->result_array();
 
     }
+
+     public function getAllChecklistByDept($deptId){
+
+        $this->db->select('checklist.id as `id`,checklist.name as `name`, schedule_type.name as `type`, start , end , station_id ');
+        $this->db->from('checklist');
+        $this->db->join('schedule_type','schedule_type.id = checklist.schedule_type_id');
+        $this->db->where('department_id', $deptId);
+        $result = $this->db->get();
+
+        return $result->result_array();
+
+    }
+
+
+    public function getWeeklyChecklistByDept($deptId){
+
+        $this->db->select('checklist.id as `id`,checklist.name as `name`, schedule_type.name as `type`, start , end , station_id ');
+        $this->db->from('checklist');
+        $this->db->join('schedule_type','schedule_type.id = checklist.schedule_type_id');
+        $this->db->where('department_id', $deptId);
+        $this->db->where('checklist_type', 'weekly');
+        $result = $this->db->get();
+
+        return $result->result_array();
+
+    }
+
 
     public function addTask($tasks){
 
@@ -48,7 +77,8 @@ class Checklist_Task extends CI_Model
             "description" => $tasks['desc'],
             "sec" => $tasks['sec'],
             "checklist_id" => $tasks['checklist'],
-            "task_type" => $tasks["taskType"]
+            "task_type" => $tasks["taskType"],
+            "img_path" => $tasks["img_path"]
         );
 
         $this->db->insert('task', $data);  

@@ -28,7 +28,7 @@ class Dashboard extends CI_Controller
             "name" => $_SESSION['employee_name'],
             "department" => $_SESSION['department'],
             "position" => $_SESSION['position'],
-            //role are for buttons
+            //role are for buttons˜
              "role" => $_SESSION['role'],
         );
 
@@ -58,10 +58,17 @@ class Dashboard extends CI_Controller
         }
         
          $nowDate = date("m-d-y");
+
+         $getGenTaskIdByEmp = $this->checklistRecord->getGenTaskIdByEmp($nowDate,$_SESSION['user_id']);
          $getTaskIdByDept = $this->checklistRecord->getTaskIdByDept($nowDate,$department_id);
 
 
-        $accomplished_task = array_map(function($a) {  return array_pop($a); }, $getTaskIdByDept);
+        $general_accomplished_task = array_map(function($a) {  return array_pop($a); }, $getGenTaskIdByEmp);
+        $dept_accomplished_task = array_map(function($a) {  return array_pop($a); }, $getTaskIdByDept);
+
+        $accomplished_task = array_merge($general_accomplished_task,$dept_accomplished_task);
+
+         //print_r($accomplished_task);
 
         $source = $this->department->getStation($department_id);
         $stations = !empty($source) ? $source : null;
@@ -79,9 +86,76 @@ class Dashboard extends CI_Controller
 
         //use department to fetch the checklist
         //if department has station filter the checklist by station
-        
 
+
+        
+        if(count($data['checklists']) > 0)
          $data['default_station'] = $data['checklists'][0]['station_id'];
+
+         //  echo "<pre>";
+         // print_r($data);
+
+        // //base_url('auth');
+        $this->load->view('dashboard/common/header');
+        $this->load->view('dashboard/common/topbar');
+        $this->load->view('dashboard/employee/checklist',$data);
+        $this->load->view('dashboard/common/footer');
+
+    }
+
+    public function weeklyChecklist(){
+
+        //task checker : get all taken task and dont display
+        $user_id = $_SESSION['user_id'];
+        $department_id = $_SESSION['department_id'];
+        //add user info on the data
+        $data = array(
+            "user_id" => $user_id,
+            "department_id" => $department_id,
+        );
+
+        $checklist = $this->checklist->getWeeklyChecklistByDept($department_id);
+
+        for ($i=0; $i < count($checklist); $i++) { 
+            $tasks = $this->checklist->getTasks($checklist[$i]['id']);
+            $checklist[$i]['tasks'] = $tasks;
+        }
+        
+         $nowDate = date("m-d-y");
+
+         $getGenTaskIdByEmp = $this->checklistRecord->getGenTaskIdByEmp($nowDate,$_SESSION['user_id']);
+         $getTaskIdByDept = $this->checklistRecord->getTaskIdByDept($nowDate,$department_id);
+
+
+        $general_accomplished_task = array_map(function($a) {  return array_pop($a); }, $getGenTaskIdByEmp);
+        $dept_accomplished_task = array_map(function($a) {  return array_pop($a); }, $getTaskIdByDept);
+
+        $accomplished_task = array_merge($general_accomplished_task,$dept_accomplished_task);
+
+         //print_r($accomplished_task);
+
+        $source = $this->department->getStation($department_id);
+        $stations = !empty($source) ? $source : null;
+
+        if($stations)
+        $hasStation = count($stations) > 0 ? true : false ;
+
+        if($stations){
+            $data['stations'] = $stations;
+        }
+
+        $data['hasStations'] = isset($hasStation) ? $hasStation : false;
+        $data['checklists'] = $checklist;
+        $data['accomplished_task'] = $accomplished_task;
+
+        //use department to fetch the checklist
+        //if department has station filter the checklist by station
+
+            
+        if($checklist)
+            $data['default_station'] = $data['checklists'][0]['station_id'];
+        else
+            $data['default_station'] = 0;
 
          //  echo "<pre>";
          // print_r($data);
@@ -89,7 +163,7 @@ class Dashboard extends CI_Controller
         //base_url('auth');
         $this->load->view('dashboard/common/header');
         $this->load->view('dashboard/common/topbar');
-        $this->load->view('dashboard/employee/checklist',$data);
+        $this->load->view('dashboard/employee/weeklyChecklist',$data);
         $this->load->view('dashboard/common/footer');
 
     }
@@ -99,37 +173,39 @@ class Dashboard extends CI_Controller
         // echo "<pre>";
         // print_r($_SESSION);
 
-    //     [department] => F&B
-    // [username] => ianreilcanto
-    // [email] => test@email.com
-    // [contact_number] => 09171635669
-    // [employee_name] => Ian Reil Canto
-    // [department_id] => 2
-    // [position] => supervisor
-    // [employee_type_id] => 5
-    // [user_id] => 1
-    // [role] => manager
-    // [access_role] => 3
+        // [department] => F&B
+        // [username] => ianreilcanto
+        // [email] => test@email.com
+        // [contact_number] => 09171635669
+        // [employee_name] => Ian Reil Canto
+        // [department_id] => 2
+        // [position] => supervisor
+        // [employee_type_id] => 5
+        // [user_id] => 1
+        // [role] => manager
+        // [access_role] => 3
 
         $nowDate = date("m-d-y");
+        $nowTime = date("h:i:sa");
 
 
         $employee_task = array(
             'image_path' => null,
             'status' => 1,
             'created_date' => $nowDate,
+            'created_time' => $nowTime,
             'task_id' => $task_id,
             'department_id' => $_SESSION['department_id'],
             'employee_id' => $_SESSION['user_id']
 
         );
 
-        $isCompleted = $this->checklistRecord->checkTask($nowDate,$task_id) > 0 ? true : false; 
+        //$isCompleted = $this->checklistRecord->checkTask($nowDate,$task_id) > 0 ? true : false; 
 
-        if(!$isCompleted)
-            $this->checklistRecord->add($employee_task);
-        else
-            redirect('dashboard');
+        //if(!$isCompleted)
+        $this->checklistRecord->add($employee_task);
+        // else
+        //     redirect('dashboard');
 
         $data = array();
         $tasks = $this->checklist->getTaskById($task_id);

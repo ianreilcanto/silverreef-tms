@@ -80,6 +80,9 @@ class Auth extends CI_Controller
 
             // check role redirection admin/employee
             redirect('dashboard');
+       }else{
+         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Incorect Username and Password! </div>');
+         redirect('auth');
        }
 
        

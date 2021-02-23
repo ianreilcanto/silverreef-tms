@@ -11,6 +11,7 @@ class Checklist extends CI_Controller
          $this->load->model('Department_Station', 'department');
 
 
+
     }
 
 
@@ -30,123 +31,60 @@ class Checklist extends CI_Controller
 
 
     }
+    public function upload_image($file,$filename) {
+
+
+            if(isset($file["type"]))
+            {
+              $validextensions = array("jpeg", "jpg", "png");
+              $temporary = explode(".", $file["name"]);
+              $file_extension = end($temporary);
+
+              if ((($file["type"] == "image/png") ||($file["type"] == "image/jpg") || 
+                 ($file["type"] == "image/jpeg") ) && 
+                 ($file["size"] < 100000) && 
+                  in_array($file_extension, $validextensions)){
+                 if ($file["error"] > 0)
+                  {
+                      echo "Return Code: " . $file["error"] . "<br/><br/>";
+                  } else {
+                    $sourcePath = $file['tmp_name'];
+                    //change file name and add department folder
+                    $targetPath = './assets/img/taskImage/' . $filename; // The Target path where file is to be stored
+                    move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
+                    echo "asd";
+                  }
+              }
+        }else{
+            echo "no image";
+        }
+    }
 
     public function add_task(){
 
+        $date = new DateTime();
 
+
+        $data = json_decode($_POST['tasklist'],true);
+
+        $filename = $date->getTimestamp().'-'.$data['department'].'-'.$data['checklist'].'-'.$_FILES['task-file']['name'];
+
+        $data['img_path'] = '/taskImage/'.$date->getTimestamp().'-'.$data['department'].'-'.$data['checklist'].'-'.$_FILES['task-file']['name'];
+
+        $this->upload_image($_FILES['task-file'],$filename);
 
 
     	//foreach ($tasks as $task) {
 	
-    			$this->checklist->addTask($_POST['task']);
+    			$this->checklist->addTask($data);
 
     	//}
 
     }
 
-    public function daily($schedType,$dept){
+    public function getAllChecklistByDept(){
 
-        //sample link
-        //http://taskmanangement.test/checklist/daily/opening/2
-
-        $data = array();
-        $checklistTasks = array();
-
-        //to be refactor on getting the type
-        $type = ( strtoupper($schedType) == 'OPENING' ) ? 1 : 2;
-
-
-        //opening has id of 1 in the database
-        //$schedule_type = 1;
-
-        $data["sched_type"] = strtoupper($schedType);
-        $data["dept"] = $this->department->getById($dept);
-        $data['station'] = null;
-
-
-        $checklists = $this->checklist->getDaily($type,$dept,0);
-
-        foreach ($checklists as $checklist) {
-             $task = $this->checklist->getTasks($checklist['id']);
-
-             array_push($checklistTasks, array( $checklist['name'] => $task) );
-        }
-
-       //echo $type;
-        $employees = $this->department->getEmployee();
-
-        $data["checklists"] = $checklistTasks;
-        $data["employees"] =  $employees;
-
-        // foreach ($data["checklists"] as $test) {
-        //     foreach ($test as $key => $test2) {
-        //             echo "<pre>".$key."<br>";
-        //             print_r($test2);
-
-        //     }
-        // }
-
-        // echo "<pre>";
-        // print_r($employee);
-
-
-       $this->load->view('checklist/checklist_view', $data );
-
-    }
-
-
-    public function dailyReport($schedType,$dept){
-
-    	$data = array();
-        $checklistTasks = array();
-
-        //to be refactor on getting the type
-        $type = ( strtoupper($schedType) == 'OPENING' ) ? 1 : 2;
-
-
-        //opening has id of 1 in the database
-        //$schedule_type = 1;
-
-        $data["sched_type"] = strtoupper($schedType);
-        $data["dept"] = $this->department->getById($dept);
-        $data['station'] = null;
-
-
-        $checklists = $this->checklist->getDaily($type,$dept,0);
-
-        foreach ($checklists as $checklist) {
-             $task = $this->checklist->getTasks($checklist['id']);
-
-             array_push($checklistTasks, array( $checklist['name'] => $task) );
-        }
-
-       //echo $type;
-
-        $employees = $this->department->getEmployee();
-
-        $data["checklists"] = $checklistTasks;
-
-        // foreach ($data["checklists"] as $test) {
-        //     foreach ($test as $key => $test2) {
-        //             echo "<pre>".$key."<br>";
-        //             print_r($test2);
-
-        //     }
-        // }
-
-        // echo "<pre>";
-        // print_r($employee);
-
-
-       $this->load->view('checklist/checklist_report', $data );
-
-    
-
-    }
-
-    public function getChecklistByDept(){
-
-        $result = $this->checklist->getChecklistByDept($_POST['deptId']);
+        $result = $this->checklist->getAllChecklistByDept($_POST['deptId']);
 
         //print_r($result);
 

@@ -27,12 +27,17 @@
 	<div class="row">
 		<div class="col text-center mt-5">
 			
-			 <a class="btn bg-gradient-secondary text-light employee-btn mt-3 p-3" href="/dashboard/checklist"> 
+			<a class="btn bg-gradient-secondary text-light employee-btn mt-3 p-3" href="/dashboard/checklist"> 
 		       <i class="fa fa-th-list"></i>
 		       <br>
-		       <span>Checklist</span>
-		    </a> 
+		       <span>Daily Checklist</span>
+		    </a>
 
+		    <a class="btn bg-gradient-info text-light employee-btn mt-3 p-3" href="/dashboard/weeklyChecklist"> 
+		       <i class="fa fa-file-alt"></i>
+		       <br>
+		       <span>Weekly Checklist</span>
+		    </a> 
 	
 			<a class="btn employee-btn mt-3 p-3 bg-gradient-success text-light " href="/dashboard/mytask"> 
 		       <i class="fa fa-tasks"></i>
@@ -41,18 +46,14 @@
 		    </a>
 
 
-		    <a class="btn bg-gradient-info text-light employee-btn mt-3 p-3" href="#"> 
-		       <i class="fa fa-file-alt"></i>
-		       <br>
-		       <span>Report</span>
-		    </a> 
-
-		    <a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
-		       <i class="fa fa-file-alt"></i>
-		       <br>
-		       <span>My Schedules</span>
-		    </a> 
-
+		  
+		  	<!--   
+		  		<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
+			       <i class="fa fa-file-alt"></i>
+			       <br>
+			       <span>Request</span>
+		    	</a> 
+ 			-->
 	
 			 <a class="btn bg-gradient-danger text-light employee-btn mt-3 p-3" href="/auth/logout"> 
 		       <i class="fa fa-power-off"></i>

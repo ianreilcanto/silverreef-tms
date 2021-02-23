@@ -9,14 +9,12 @@ $('#slc-employee-station').on('change',function(){
  });
 
 
-console.log('asd');
-
 
 function displayTask($id){
 
 
 	//$('#station_switch').hasClass('station'+$id);
-
+	$('#slc-employee-station').val($id);
 
 	$('.station_switch').each(function(){
 		let isMatch = $(this).hasClass('station'+$id);

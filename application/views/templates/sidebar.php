@@ -29,7 +29,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Employee Management:</h6>
                     <a class="collapse-item" href="/admin/employee">Manage</a>
-                    <a class="collapse-item" href="/admin/employeeSchedule">Employee Schedules</a>
                 </div>
             </div>
         </li>
@@ -49,39 +48,6 @@
             </div>
         </li>
 
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#departmentMenu"
-                aria-expanded="true" aria-controls="departmentMenu">
-                <i class="fas fa-fw fa-building"></i>
-                <span>Department</span>
-            </a>
-            <div id="departmentMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Department Management:</h6>
-                    <a class="collapse-item" href="/admin/department">Manage</a>
-                </div>
-            </div>
-        </li>
-
-         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#scheduleMenu"
-                aria-expanded="true" aria-controls="scheduleMenu">
-                <i class="fas fa-fw fa-calendar-check"></i>
-                <span>Schedules</span>
-            </a>
-            <div id="scheduleMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Schedule Management:</h6>
-                   <!--  <a class="collapse-item" href="#">Schedule Type</a> -->
-                    <a class="collapse-item" href="/admin/schedule">Manage</a>
-                </div>
-            </div>
-        </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
  
@@ -90,9 +56,6 @@
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                 <span>Logout</span></a>
         </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
