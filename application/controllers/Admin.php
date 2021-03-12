@@ -10,6 +10,7 @@ class Admin extends CI_Controller
         //is_logged_in();
 
          $this->load->model('Department_Station', 'department');
+         $this->load->model('Checklist_Task', 'checklist');
     }
 
     public function index()
@@ -90,6 +91,43 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar');
         $this->load->view('admin//dashboard/checklist', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function reportDaily(){
+
+        $data['title'] = 'Daily';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+            $this->load->view('admin//dashboard/reports', $data);
+        $this->load->view('templates/footer');
+
+
+    }
+
+    public function reportWeekly(){
+
+        $data['title'] = 'Weekly';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+            $this->load->view('admin//dashboard/reports', $data);
+        $this->load->view('templates/footer');
+
+    }
+
+    public function reportMonthly(){
+
+        $data['title'] = 'Monthly';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin//dashboard/reports', $data);
+        $this->load->view('templates/footer');
+
     }
 
 

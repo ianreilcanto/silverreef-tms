@@ -36,14 +36,11 @@ class Checklist extends CI_Controller
 
             if(isset($file["type"]))
             {
-              $validextensions = array("jpeg", "jpg", "png");
+              $validextensions = array("jpeg", "jpg", "png","PNG","JPEG","JPG");
               $temporary = explode(".", $file["name"]);
               $file_extension = end($temporary);
 
-              if ((($file["type"] == "image/png") ||($file["type"] == "image/jpg") || 
-                 ($file["type"] == "image/jpeg") ) && 
-                 ($file["size"] < 100000) && 
-                  in_array($file_extension, $validextensions)){
+              if ((($file["type"] == "image/png") ||($file["type"] == "image/jpg") || ($file["type"] == "image/jpeg") ) && ($file["size"] < 100000) && in_array($file_extension, $validextensions)){
                  if ($file["error"] > 0)
                   {
                       echo "Return Code: " . $file["error"] . "<br/><br/>";

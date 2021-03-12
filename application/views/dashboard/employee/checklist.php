@@ -35,7 +35,8 @@
 
     <?php foreach ($checklists as $checklist) { 
 
-        $typeTime = $checklist['type'].' ( '.$checklist['start'].' - '.$checklist['end'].' )';
+        //$typeTime = $checklist['type'].' ( '.$checklist['start'].' - '.$checklist['end'].' )';
+        $typeTime = $checklist['type'];
 
     ?>
         <?php foreach ($checklist['tasks'] as $task) {
@@ -46,40 +47,52 @@
 
         ?>
 
-                <div id="" class="row station_switch station<?php echo($checklist['station_id']); ?>" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
-                <div class="col mt-2">
-                    <div class="card border-left-<?php echo($cardColor); ?> shadow h-100 py-2">
-                        <div class="card-body">
-                            <h6><?php echo $checklist['name']; ?></h6>
-                            <h6><?php echo $typeTime; ?></h6>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-md font-weight-bold text-<?php echo($cardColor); ?> mb-1">
-                                        <a data-toggle="collapse" href="#task<?php echo($task['id']); ?>" role="button" aria-expanded="false" aria-controls="task<?php echo($task['id']); ?>"> <h5> <?php echo $task['name'].'( '.$task['sec'].' sec )'; ?></h5></a>
-                                    </div>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col">
-                                            <div class="collapse" id="task<?php echo($task['id']); ?>">
-                                                  <div class="card card-body">
-                                                        <img style="width: 100%" src="../../assets/img/<?php echo $task['img_path']; ?>">  
-                                                        <?php echo $task['description']; ?>
-                                                  </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                     <a class="btn btn-<?php echo($cardColor); ?>" href="/dashboard/task/<?php echo($task['id']) ?>"> 
-                                       <i class="fa fa-tasks"></i> <span>Get Task</span>
-                                    </a> 
-                                    <!-- <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-                </div>
+             <div class="row station_switch station<?php echo($checklist['station_id']); ?> bg-<?php echo($cardColor); ?> rounded mt-2" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
 
+                 <div class="row px-2">
+                      <div class="col-6 mt-2">
+                          <span class="badge badge-light p-1"><?php echo $typeTime; ?></span>
+                      </div>
+
+                      <div class="col-6 text-right mt-2 ">
+
+                            <div class="btn-group">
+                                <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageModal<?php echo($task['id']); ?>"> 
+                                        <i class="fa fa-eye" aria-hidden="true"></i> <span></span>
+                                </a> 
+                                <a class="btn btn-dark btn-sm" href="/dashboard/task/<?php echo($task['id']) ?>"> 
+                                    <i class="fa fa-tasks"></i> <span>Get Task</span>
+                                </a> 
+                            </div>
+                                  
+                      </div> 
+                 </div>
+                  <div class="col-12">
+                      <a class="text-light" data-toggle="collapse" href="#task<?php echo($task['id']); ?>" role="button" aria-expanded="false" aria-controls="task<?php echo($task['id']); ?>"> 
+                          <h5><?php echo $task['name'].'( '.$task['sec'].' sec )'; ?></h5>
+                      </a>
+                  </div>
+                  <div class="col-12 collapse bg-light pt-2" id="task<?php echo($task['id']); ?>">
+                          <?php echo $task['description']; ?>
+                  </div>
+             </div>
+
+             <!-- modal -->
+            <div class="modal fade" id="imageModal<?php echo($task['id']); ?>" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div style="margin-top:20%" class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../../assets/img/<?php echo $task['img_path']; ?>" alt="" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         <?php 
                 } 

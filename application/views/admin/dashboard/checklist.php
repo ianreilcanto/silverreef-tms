@@ -46,8 +46,8 @@
 									  <select class="custom-select" id="checklist-sched-type">
 										    <option selected>Choose...</option>
 										    <option value="1">Opening</option>
-										    <option value="1">Mid</option>
-										    <option value="2">Closing</option>
+										    <option value="2">Mid</option>
+										    <option value="3">Closing</option>
 									  </select>
 								</div>		
 								<div class="input-group mb-3">

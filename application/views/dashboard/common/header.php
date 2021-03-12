@@ -41,6 +41,12 @@
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
     <!-- <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
 
+      <style type="text/css">
+        .marker{
+            color: #4e73df!important;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
