@@ -38,8 +38,7 @@
                     </h3>
                 </div>
             </div>
-        </div>
-      
+        </div> 
         <br>
     <!-- start card -->
     <div class="card "  style="">
