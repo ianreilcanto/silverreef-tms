@@ -16,7 +16,7 @@
             </div>
         <br> -->
         <?php foreach ($tasks as $task) {
-            $cardColor = $task['task_type'] == 'required' ? 'danger' : 'success';
+            $cardColor = $task['task_type'] == 'required' ? 'colorcardRed' : 'colorcardGreen';
         ?>
         
 
