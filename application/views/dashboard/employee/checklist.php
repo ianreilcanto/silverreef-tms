@@ -1,4 +1,16 @@
 
+
+
+
+<style>
+                
+                .colorlightGrey { background-color: #797a7e;}
+</style>
+
+
+
+
+
 <div class="container">
     <br>
     <div class="row">
@@ -14,9 +26,9 @@
         <div class="col" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
            <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                        <label class="input-group-text" for="slc-employee-station">Type</label>
+                        <label class="input-group-text border-0 colorlightGrey text-light" for="slc-employee-station">Type</label>
                   </div>
-                  <select class="custom-select" id="slc-employee-station">
+                  <select class="custom-select border-0" id="slc-employee-station">
 
                         <?php foreach ($stations as $station) { ?>
                                 <!-- <option value="1">F&B</option> -->
@@ -47,7 +59,7 @@
 
         ?>
 
-             <div class="row station_switch station<?php echo($checklist['station_id']); ?> bg-<?php echo($cardColor); ?> rounded mt-2" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
+             <div class="row station_switch station<?php echo($checklist['station_id']); ?> bg-<?php echo($cardColor); ?> rounded mt-2 py-1" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
 
                  <div class="row px-2">
                       <div class="col-6 mt-2">
@@ -57,11 +69,11 @@
                       <div class="col-6 text-right mt-2 ">
 
                             <div class="btn-group">
-                                <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageModal<?php echo($task['id']); ?>"> 
+                                <a class="btn btn-light btn-sm " data-toggle="modal" data-target="#imageModal<?php echo($task['id']); ?>"> 
                                         <i class="fa fa-eye" aria-hidden="true"></i> <span></span>
                                 </a> 
-                                <a class="btn btn-dark btn-sm" href="/dashboard/task/<?php echo($task['id']) ?>"> 
-                                    <i class="fa fa-tasks"></i> <span>Get Task</span>
+                                <a class="btn btn-dark btn-sm colorlightGrey border-0" href="/dashboard/task/<?php echo($task['id']) ?>"> 
+                                    <i class="fa fa-tasks" ></i> <span>Get Task</span>
                                 </a> 
                             </div>
                                   
