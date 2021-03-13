@@ -22,17 +22,16 @@
 
         <br>
         <div class="row">
-            <div class="col-3">
-                <h4>
-                    <span class="badge text-light  <?php echo $cardColor; ?> text-uppercase font-weight-light" id="countdown" >0</span>
-                </h4>
+            <div class="col-12 text-center">
+                <h1>
+                <span class="text-uppercase font-weight-light">My Task</span>
+                </h1>
             </div>
-            <div class="col-9"> 
-                <div class="col text-right">
+            <div class="col-12 text-center"> 
                     <h3>
-                        <span class="badge text-light  <?php echo $cardColor; ?> text-uppercase font-weight-light">My Task</span>
+                       
+                        <span class="badge text-light  <?php echo $cardColor; ?>  btn-circle btn-lg font-weight-lg" id="countdown" >0</span>
                     </h3>
-                </div>
             </div>
         </div> 
         <br>
@@ -48,6 +47,10 @@
 
             <div class="card card-body">
                 <?php echo $task['description']; ?>
+
+                <div class="col-12 text-center">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                </div>
             </div>
     
         </div>
