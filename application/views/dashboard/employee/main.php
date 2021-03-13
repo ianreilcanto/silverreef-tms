@@ -7,6 +7,7 @@
                 .colorbody { background-color: #f6f5f5;}
                 .colorBlue { background-color: #01a9b4;}
 				.colorGrey { background-color: #6c7b95;}
+				.colorlightGrey { background-color: #797a7e;}
 
                 
 
@@ -27,15 +28,15 @@
 	</div>
 	<br>
 		<div class="row">
-			<div class="col-12 text-center text-light "> <h5> <span class="badge colorGrey font-weight-medium"> Name: <?php echo $name; ?></span></h5> </div>
-			<div class="col-12 text-center text-light"> <h5><span class="badge colorGrey font-weight-medium"> Position:  <?php echo $position; ?></span> </h5> </div>
+			<div class="col-12 text-center text-light "> <h5> <span class="badge colorlightGrey font-weight-medium"> Name: <?php echo $name; ?></span></h5> </div>
+			<div class="col-12 text-center text-light"> <h5><span class="badge colorlightGrey font-weight-medium"> Position:  <?php echo $position; ?></span> </h5> </div>
 
 		</div>
 		
 	<div class="row">
 		<div class="col text-center mt-3">
 			
-			<a class="btn colorGrey text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/checklist"> 
+			<a class="btn colorlightGrey text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/checklist"> 
 		       <i class="fa fa-th-list"></i>
 		       <br>
 		       <span>Daily Checklist</span>

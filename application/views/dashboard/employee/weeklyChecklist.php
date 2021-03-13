@@ -1,4 +1,13 @@
 
+
+<style>
+                
+                .colorlightGrey { background-color: #797a7e;}
+</style>
+
+
+
+
 <div class="container">
     <br>
     <div class="row">
@@ -14,9 +23,9 @@
         <div class="col" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
            <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                        <label class="input-group-text" for="slc-employee-station">Type</label>
+                        <label class="input-group-text border-0 colorlightGrey text-light" for="slc-employee-station">Type</label>
                   </div>
-                  <select class="custom-select" id="slc-employee-station">
+                  <select class="custom-select border-0" id="slc-employee-station">
 
                         <?php foreach ($stations as $station) { ?>
                                 <!-- <option value="1">F&B</option> -->

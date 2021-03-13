@@ -45,11 +45,13 @@
         .marker{
             color: #4e73df!important;
         }
+
+        .colorlightGrey { background-color: #797a7e;}
     </style>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="colorlightGrey">
 
     <!-- Page Wrapper -->
     <div id="wrapper">

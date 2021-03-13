@@ -257,4 +257,17 @@ class Dashboard extends CI_Controller
       $sms = $textko->send('09171635669', 'test');
     }
 
+
+    public function test2(){
+        
+        $this->load->view('dashboard/test');
+
+    }
+
+    public function form(){
+        
+        $this->load->view('dashboard/form');
+
+    }
+    
 }
