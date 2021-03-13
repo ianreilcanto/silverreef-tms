@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-3">
                 <h4>
-                    <span class="badge text-light  colorcardGreen text-uppercase font-weight-light" id="countdown" >0</span>
+                    <span class="badge text-light  <?php echo $cardColor; ?> text-uppercase font-weight-light" id="countdown" >0</span>
                 </h4>
             </div>
             <div class="col-9"> 
                 <div class="col text-right">
                     <h3>
-                        <span class="badge text-light  colorcardGreen text-uppercase font-weight-light">My Task</span>
+                        <span class="badge text-light  <?php echo $cardColor; ?> text-uppercase font-weight-light">My Task</span>
                     </h3>
                 </div>
             </div>
@@ -41,7 +41,7 @@
              
             <img class="card-img-top" src="../../assets/img/<?php echo $task['img_path']; ?>" alt="Card image cap"></img>
     
-            <div class="card-body text-center colorcardGreen">
+            <div class="card-body text-center <?php echo $cardColor; ?>">
                 <h5 class="card-title text-light font-weight-light"><?php echo $task['name']; ?></h5>    
             </div>
 
