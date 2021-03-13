@@ -74,9 +74,3 @@
 	</div>
 
 </div>
-
-
-		<!-- <div class="col">
-			<div class="col text-left"><?php echo $name; ?></div>
-			<div class="col text-left"><?php echo $position; ?></div>
-		</div> -->
