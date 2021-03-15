@@ -30,7 +30,9 @@ class Dashboard extends CI_Controller
             "position" => $_SESSION['position'],
             //role are for buttons˜
              "role" => $_SESSION['role'],
+             "isAdmin" => $_SESSION['role'] == 'admin' || $_SESSION['role'] == 'manager'  ? '' : 'none'
         );
+
 
         $this->load->view('dashboard/common/header');
         $this->load->view('dashboard/common/topbar');
@@ -38,6 +40,7 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/common/footer');
 
     }
+
 
     public function checklist(){
 
@@ -248,6 +251,16 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/employee/mytask',$data);
         $this->load->view('dashboard/common/footer');
     }
+
+    public function upload_emplyee_task_image(){
+
+        $data = json_decode($_POST['uploadData'],true);
+
+        print_r($_FILES);
+
+    }
+
+
 
 
     public function test(){

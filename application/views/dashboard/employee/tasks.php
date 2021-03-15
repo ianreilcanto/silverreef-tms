@@ -49,8 +49,13 @@
                 <?php echo $task['description']; ?>
 
                 <div class="col-12 text-center">
-                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn <?php echo $cardColor; ?>">
+                            <input type="checkbox" name="isDone" id="isDone" autocomplete="off">
+                        </label>
+                    </div>
                 </div>
+
             </div>
     
         </div>
@@ -73,7 +78,7 @@
                 document.getElementById("countdown").innerHTML = timeleft + "";
                 clearInterval(downloadTimer);
                 // document.getElementById("countdown").innerHTML = templateButton
-
+                document.getElementById("isDone").checked = true;
                 $('.back').show();
 
               } else {
@@ -85,6 +90,7 @@
 
         </script>
 
+      
           <?php } ?>
 
 </div>

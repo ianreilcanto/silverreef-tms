@@ -11,12 +11,8 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-<<<<<<< HEAD
-		"php": ">=5.3.7"
-=======
 		"php": ">=5.3.7",
 		"textko/php": "^3.0"
->>>>>>> 3df3334bc456faef18390e56f526e57dc2e46484
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

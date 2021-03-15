@@ -54,12 +54,6 @@ $('#manage-task-form').on('submit',function(e) {
      var file_data =  $('#task-file').prop('files')[0];  
      $tasklist = taskValidator(formvalues);
 
-
-
-    
-
-
- 
     var form_data = new FormData(this);    
 
    console.log($tasklist);
@@ -84,63 +78,6 @@ $('#manage-task-form').on('submit',function(e) {
 
 
 });
-
-// $('#task-image-upload').on('click', function() {
-//     var file_data = $('#task-file').prop('files')[0];   
-//     var form_data = new FormData();                  
-//     form_data.append('file', file_data);                           
-//     $.ajax({
-//         url: '/checklist/add_task', // point to server-side PHP script 
-//         dataType: 'text',  // what to expect back from the PHP script, if anything
-//         cache: false,
-//         contentType: false,
-//         processData: false,
-//         data: form_data,                         
-//         type: 'post',
-//         success: function(php_script_response){
-//             console.log(php_script_response); // display response from the PHP script, if any
-//         }
-//      });
-// });
-
-// $('#add-task').click(function(e){
-// 	e.preventDefault();
-	
-// 	 	var formvalues = $("#manange-checklist-form");
-// 	    //validate form first before submitting
-//         var file_data =  $('#task-file').prop('files')[0];  
-// 		$tasklist = taskValidator(formvalues);
-
-
-
-// 	    $data = {
-// 	    	task : $tasklist
-// 	    }
-
-	   
-// 	 $.ajax({
-//         url: "/checklist/add_task",
-//         type: "post",
-//         data: $data ,
-//           processData: false,
-//         success: function (response) {
-
-// 				let taskForm = $('.task-data').children();
-// 					taskForm.find('#checklist-task-name').val("");
-// 					taskForm.find('#checklist-task-minute').val("");
-// 					task_description.value = "";
-
-//         	console.log(response);
-
-//            // You will get response from your PHP page (what you echo or print)
-//         },
-//         error: function(jqXHR, textStatus, errorThrown) {
-//            console.log(textStatus, errorThrown);
-//         }
-//     });
-
-
-// });
 
  $('#task-file').on('change',function(e){
     //get the file name
