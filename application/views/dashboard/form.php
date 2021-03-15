@@ -32,25 +32,25 @@
                               <h3> <span class="badge colorlightGrey text-light font-weight-normal">Registration</span></h3> 
                         </div>
                         
-                    <form id="employee-form" class="mt-5">
+                    <form id="employee-form" class="mt-5" action="/action_page.php">
                 		<div class="row">
                 			<div class="col">
 		                		<div class="form-group">
 									 <!-- <label for="fname">First Name</label> -->
-									 <input type="text" class="form-control border-0" id="fname" placeholder="First Name">
+									 <input type="text" class="form-control border-0" id="fname" placeholder="First Name" required>
 								 </div>
 								 <div class="form-group">
 									 <!-- <label for="mname">Middle Name</label> -->
-									 <input type="text" class="form-control border-0" id="mname" placeholder="Middle Name">
+									 <input type="text" class="form-control border-0" id="mname" placeholder="Middle Name" required>
 								 </div>
 								 <div class="form-group">
 									 <!-- <label for="lname">Last Name</label> -->
-									 <input type="text" class="form-control border-0" id="lname" placeholder="Last Name">
+									 <input type="text" class="form-control border-0" id="lname" placeholder="Last Name" required>
 								 </div>
                                 <div class="form-group">
                                      <!-- <label for="address">Address</label> -->
                                      <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-                                         <input type="tex" class="form-control border-0" id="birthDate" placeholder="Birth Date" data-type="datepicker" data-guid="5f0f6aad-8b2f-ef63-0193-cd27b6cf851a" data-datepicker="true" role="input">
+                                         <input type="tex" class="form-control border-0" id="birthDate" placeholder="Birth Date" data-type="datepicker" data-guid="5f0f6aad-8b2f-ef63-0193-cd27b6cf851a" data-datepicker="true" role="input" required>
                                          <span class="input-group-append" role="right-icon">
                                              <button class="btn colorcardRed border-left-0" type="button">
                                                 <i class="fa fa-calendar text-light"></i>
@@ -60,19 +60,19 @@
                                  </div>
 								 <div class="form-group">
 									 <!-- <label for="address">Address</label> -->
-									 <input type="text" class="form-control border-0" id="address" placeholder="Address">
+									 <input type="text" class="form-control border-0" id="address" placeholder="Address" required>
 								 </div>
 								 <div class="form-group">
 									<!-- <label for="city">City/Municipality</label> -->
-									 <input type="text" class="form-control border-0" id="city" placeholder="City/Municipality">
+									 <input type="text" class="form-control border-0" id="city" placeholder="City/Municipality" required> 
 								 </div>
 								 <div class="form-group">
 									 <!-- <label for="province">Province</label> -->
-									 <input type="text" class="form-control border-0" id="province" placeholder="Province">
+									 <input type="text" class="form-control border-0" id="province" placeholder="Province" required>
 								 </div>
 								 <div class="form-group">
 									 <!-- <label for="province">Province</label> -->
-									 <input type="text" class="form-control border-0" id="country" placeholder="Country">
+									 <input type="text" class="form-control border-0" id="country" placeholder="Country" required>
 								 </div>
 								
 								 <!-- <div class="form-group">
@@ -82,12 +82,12 @@
                 			<div class="col">
                                  <div class="form-group">
                                      <!-- <label for="province">Province</label> -->
-                                     <input type="text" class="form-control border-0" id="zipcode" placeholder="ZipCode">
+                                     <input type="text" class="form-control border-0" id="zipcode" placeholder="ZipCode" required>
                                  </div>
                 				 <div class="form-group">
 									 <!-- <label for="lname">Last Name</label> -->
 									     <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-                                                <input type="tex" class="form-control" id="startDate" placeholder="Start Date" data-type="datepicker" data-guid="81088d49-1baa-94bf-ee2f-a3f5c7d6f58a" data-datepicker="true" role="input">
+                                                <input type="tex" class="form-control" id="startDate" placeholder="Start Date" data-type="datepicker" data-guid="81088d49-1baa-94bf-ee2f-a3f5c7d6f58a" data-datepicker="true" role="input" required>
                                                  <span class="input-group-append" role="right-icon">
                                                     <button class="btn colorcardRed border-left-0" type="button">
                                                          <i class="fa fa-calendar text-light"></i>
@@ -121,7 +121,7 @@
 											    	<label class="input-group-text border-0 " for="employee-dept-position">Position</label>
 											  </div>
 											  <select class="custom-select" id="employee-dept-position">
-												    <option selected="">Select</option>
+												    <options selected="">Select</option>
 											  </select>
 										</div>
 								 </div>
