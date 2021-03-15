@@ -71,11 +71,12 @@ class Checklist extends CI_Controller
         $this->upload_image($_FILES['task-file'],$filename);
 
 
-    	//foreach ($tasks as $task) {
-	
-    			$this->checklist->addTask($data);
 
-    	//}
+        print_r($_FILES);
+
+
+	
+    			//$this->checklist->addTask($data);
 
     }
 

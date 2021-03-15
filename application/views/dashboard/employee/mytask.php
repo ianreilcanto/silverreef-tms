@@ -48,18 +48,23 @@
                     </button>
                   </div>
                   <div class="modal-body">
-
+                
+                <form class="upload-emplyeeTask-image" method="post" enctype="multipart/form-data">
                     <div class="custom-file">
-                       <input id="logo" type="file" class="custom-file-input" id="reportImage<?php echo($task['id']) ?>">
-                       <label for="logo" class="custom-file-label text-truncate">Choose file...</label>
+                       
+                            <input type="hidden" id="task_id" value="<?php echo($task['id']) ?>" >
+                            <input type="file" class="custom-file-input employee-upload-image" name="reportImage<?php echo($task['id']) ?>" id="reportImage<?php echo($task['id']) ?>">
+                            <label for="logo" class="custom-file-label text-truncate employee-upload-label">Choose file...</label>
+                       
                     </div>
 
 
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Upload</button>
+                    <button type="submit" class="btn btn-primary mytask-upload">Upload</button>
                   </div>
+                </form>
                 </div>
               </div>
           </div>

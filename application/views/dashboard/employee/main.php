@@ -13,9 +13,6 @@
 
 </style>
 
-
-
-
 <div class="container ">
 	<br>
 	<div class="row">
@@ -59,15 +56,29 @@
 		       <span>My Tasks</span>
 		    </a>
 
+			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
+				<i class="fa fa-file-alt"></i>
+				<br>
+				<span>Request</span> 
+			</a> 
+ 			
 
+			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
+				<i class="fa fa-file-alt"></i>
+				<br>
+				<span>Report</span> 
+			</a> 
+ 			
 		  
-		  	<!--   
-		  		<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
-			       <i class="fa fa-file-alt"></i>
-			       <br>
-			       <span>Request</span> 
-		    	</a> 
- 			-->
+		  	  
+			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
+				<i class="fa fa-file-alt"></i>
+				<br>
+				<span>Create Task</span> 
+			</a> 
+
+			
+ 			
 	
 			 <a class="btn colorcardRed text-light font-weight-light employee-btn mt-3 p-3" href="/auth/logout"> 
 		       <i class="fa fa-power-off"></i>

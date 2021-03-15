@@ -81,4 +81,10 @@ class Employee_Task extends CI_Model
 
     }
 
+    public function uploadImage(){
+
+        print_r($_FILES['employee-upload-image']);
+
+    }
+
 }

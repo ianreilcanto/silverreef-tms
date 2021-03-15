@@ -67,6 +67,7 @@ class Employee extends CI_Controller
     	$this->employee->add_credentials($employee_id,$data);
 
     }
+
     
 
 }

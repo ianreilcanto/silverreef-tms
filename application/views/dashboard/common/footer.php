@@ -38,6 +38,9 @@
     </div>
 </div>
 
+
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -51,6 +54,84 @@
 <!-- <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script> -->
 
 <script src="<?= base_url('assets/'); ?>js/dashboard/checklist.js"></script>
+
+        <script>
+            $("#isDone").click(function(){
+               if(this.checked){
+                    $('.back').show();
+               }else
+               {
+                    $('.back').hide();
+               }
+            });
+
+            $('.upload-emplyeeTask-image').on('submit',function(e) {
+
+                e.preventDefault();
+             
+                   var formvalues = $(".upload-emplyeeTask-image");
+
+
+
+                 $uploadData = imageUploadValidator(formvalues);
+                 //var file_data =  $('#reportImage'+$uploadData.id).prop('files')[0];  
+                 var file_data =  $('#reportImage'+$uploadData.id).prop('files')[0];  
+
+              
+                 var form_data = new FormData(this);    
+
+                 console.log(file_data);
+             
+                //console.log($tasklist);
+             
+                 form_data.append('uploadData', JSON.stringify($uploadData));
+                 form_data.append('FILES', JSON.stringify(file_data));
+
+             
+                // console.log(form_data);
+             
+                 $.ajax({
+                     url: '/dashboard/upload_emplyee_task_image', // point to server-side PHP script 
+                   //  dataType: 'text',  // what to expect back from the PHP script, if anything
+                     type: 'post',  
+                     data:  form_data,  
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,       
+                     success: function(php_script_response){
+                         console.log(php_script_response); // display response from the PHP script, if any
+                     }
+                  });
+             
+             
+             });
+
+             $('.employee-upload-image').on('change',function(e){
+                //get the file name
+               var fileName = e.target.files[0].name;
+            
+                //check date 
+                //replace the "Choose a file" label
+                $(this).next('.employee-upload-label').html(fileName);
+            })
+
+
+             function imageUploadValidator(formvalues){
+
+                let upload = { 
+
+                    id : formvalues.find("#task_id").val()
+                }
+
+
+                return upload;
+
+
+             }
+
+
+        </script>
 
 
 </body>
