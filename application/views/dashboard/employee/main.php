@@ -35,7 +35,12 @@
 		
 	<div class="row">
 		<div class="col text-center mt-3">
-			
+		<a class="btn colorlightGrey text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/takeOrder"> 
+		       <i class="fa fa-th-list"></i>
+		       <br>
+		       <span>Take Order</span>
+		    </a>
+
 			<a class="btn colorlightGrey text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/checklist"> 
 		       <i class="fa fa-th-list"></i>
 		       <br>

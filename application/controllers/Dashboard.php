@@ -249,6 +249,16 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/common/footer');
     }
 
+    public function takeOrder(){
+
+        $this->load->view('dashboard/common/header');
+        $this->load->view('dashboard/common/topbar');
+        $this->load->view('dashboard/employee/takeOrder');
+        $this->load->view('dashboard/common/footer');
+
+    }
+
+
 
     public function test(){
         require_once 'vendor/autoload.php';
@@ -267,6 +277,11 @@ class Dashboard extends CI_Controller
     public function form(){
         
         $this->load->view('dashboard/form');
+
+    }
+    public function order(){
+        
+        $this->load->view('dashboard/order');
 
     }
     
