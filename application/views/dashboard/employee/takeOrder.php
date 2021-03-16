@@ -49,24 +49,33 @@
                         <div style="margin-top:20%" class="modal-dialog " role="document">
                             <div class="modal-content">
                                     <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Report</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                     </div>
                                         <div class="modal-body ">
                                             <div class="col">
-                                                <h4 >
+                                                <h4>
                                                     <span class="text-secondary text-lg font-weight-normal" >  
-                                                        OS Total:
+                                                        <div class="form-group">
+                                                            <label for=""></label>
+                                                            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                                            <small id="helpId" class="form-text text-muted">OS Number</small>
+                                                          </div>
                                                     </span>
                                                 </h4>
                                               
                                             </div>
                                             <div class="col">
-                                                <h4>
+                                               
+                                                <h4 >
                                                     <span class="text-secondary text-lg font-weight-normal" >  
-                                                        OS Number:
+                                                        <div class="form-group">
+                                                          <label for=""></label>
+                                                          <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                                          <small id="helpId" class="form-text text-muted">OS Total</small>
+                                                        </div>
                                                     </span>
                                                 </h4>
                                                 
@@ -75,14 +84,13 @@
                                         </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn colorcardGreen text-light font-weight-normal border-0" data-dismiss="modal">Close</button>
-                                        
+                                        <a href="#" class="btn colorcardGreen text-light font-weight-normal border-0" data-dismiss="modal">Close</a>
+                                        <a href="/dashboard/" class="btn colorcardGreen text-light font-weight-normal border-0">Done</a>
                                     </div>
                             </div>
                        </div>
                 </div>
                 <!-- end modal -->
-
 </div>
 <!-- end container -->
 

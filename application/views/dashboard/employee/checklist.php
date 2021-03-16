@@ -3,7 +3,15 @@
 
 
 <style>     
+    .colorbg { background-color: #19d3da; }
+    .colorcardRed { background-color: #f05454;}
+    .colorcardGreen { background-color: #16c79a;}
+    .colorbody { background-color: #f6f5f5;}
+    .colorBlue { background-color: #01a9b4;}
+    .colorGrey { background-color: #6c7b95;}
     .colorlightGrey { background-color: #797a7e;}
+    .colorlightBlue { background-color: #5e73c7;}
+
 </style>
 
 <div class="container">
@@ -35,11 +43,6 @@
         </div>
     </div>
 
-    <?php 
-    // echo "<pre>";
-    // print_r($checklists); 
-    ?>
-
     <?php foreach ($checklists as $checklist) { 
 
         //$typeTime = $checklist['type'].' ( '.$checklist['start'].' - '.$checklist['end'].' )';
@@ -48,13 +51,13 @@
     ?>
         <?php foreach ($checklist['tasks'] as $task) {
 
-            $cardColor = $task['task_type'] == 'required' ? 'danger' : 'success';
+            $cardColor = $task['task_type'] == 'required' ? 'success' : 'success';
 
             if(!in_array($task['id'], $accomplished_task)){
 
         ?>
 
-             <div class="row station_switch station<?php echo($checklist['station_id']); ?> bg-<?php echo($cardColor); ?> rounded mt-2 py-1" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
+             <div class="row station_switch station<?php echo($checklist['station_id']); ?> colorcardGreen rounded mt-2 py-1" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
 
                  <div class="row px-2">
                       <div class="col-6 mt-2">

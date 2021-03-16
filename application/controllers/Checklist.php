@@ -40,7 +40,7 @@ class Checklist extends CI_Controller
               $temporary = explode(".", $file["name"]);
               $file_extension = end($temporary);
 
-              if ((($file["type"] == "image/png") ||($file["type"] == "image/jpg") || ($file["type"] == "image/jpeg") ) && ($file["size"] < 100000) && in_array($file_extension, $validextensions)){
+              if ((($file["type"] == "image/png") ||($file["type"] == "image/jpg") || ($file["type"] == "image/jpeg") || ($file["type"] == "image/PNG") || ($file["type"] == "image/JPG") || ($file["type"] == "image/JPEG") ) && ($file["size"] < 100000) && in_array($file_extension, $validextensions)){
                  if ($file["error"] > 0)
                   {
                       echo "Return Code: " . $file["error"] . "<br/><br/>";
@@ -60,23 +60,14 @@ class Checklist extends CI_Controller
     public function add_task(){
 
         $date = new DateTime();
-
-
         $data = json_decode($_POST['tasklist'],true);
 
         $filename = $date->getTimestamp().'-'.$data['department'].'-'.$data['checklist'].'-'.$_FILES['task-file']['name'];
-
         $data['img_path'] = '/taskImage/'.$date->getTimestamp().'-'.$data['department'].'-'.$data['checklist'].'-'.$_FILES['task-file']['name'];
 
         $this->upload_image($_FILES['task-file'],$filename);
 
-
-
-        print_r($_FILES);
-
-
-	
-    			//$this->checklist->addTask($data);
+    	$this->checklist->addTask($data);
 
     }
 

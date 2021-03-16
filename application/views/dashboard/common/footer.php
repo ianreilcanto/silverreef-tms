@@ -57,6 +57,7 @@
 
         <script>
             $("#isDone").click(function(){
+                console.log('');
                if(this.checked){
                     $('.back').show();
                }else
@@ -69,7 +70,7 @@
 
                 e.preventDefault();
              
-                   var formvalues = $(".upload-emplyeeTask-image");
+                   var formvalues = $(this);
 
 
 
@@ -80,18 +81,12 @@
               
                  var form_data = new FormData(this);    
 
-                 console.log(file_data);
-             
-                //console.log($tasklist);
              
                  form_data.append('uploadData', JSON.stringify($uploadData));
-                 form_data.append('FILES', JSON.stringify(file_data));
 
              
-                // console.log(form_data);
-             
                  $.ajax({
-                     url: '/dashboard/upload_emplyee_task_image', // point to server-side PHP script 
+                     url: '/EmployeeTask/upload_emplyee_task_image', // point to server-side PHP script 
                    //  dataType: 'text',  // what to expect back from the PHP script, if anything
                      type: 'post',  
                      data:  form_data,  
@@ -100,7 +95,10 @@
                      cache:false,
                      async:false,       
                      success: function(php_script_response){
-                         console.log(php_script_response); // display response from the PHP script, if any
+                        
+                        if(php_script_response = 'success')
+                            location.reload();
+
                      }
                   });
              
@@ -109,11 +107,20 @@
 
              $('.employee-upload-image').on('change',function(e){
                 //get the file name
-               var fileName = e.target.files[0].name;
-            
+                var nowDate = new Date().toDateString();
+               var file = e.target.files[0];
+               var imageDate = new Date(file.lastModified).toDateString();
+
+               if(imageDate != nowDate){
+                    $('.report-image-alert').show();
+                    $('.mytask-upload').prop('disabled', true);
+               }else{
+                    $('.report-image-alert').hide();
+                    $('.mytask-upload').prop('disabled', false);
+               }
                 //check date 
                 //replace the "Choose a file" label
-                $(this).next('.employee-upload-label').html(fileName);
+                $(this).next('.employee-upload-label').html(file.name);
             })
 
 

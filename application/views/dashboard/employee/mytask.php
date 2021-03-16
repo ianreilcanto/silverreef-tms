@@ -1,3 +1,12 @@
+<style type="text/css">
+    .colorbg { background-color: #19d3da; }
+    .colorcardRed { background-color: #f05454;}
+    .colorcardGreen { background-color: #16c79a;}
+    .colorbody { background-color: #f6f5f5;}
+    .colorGrey { background-color: #6c7b95;}
+
+</style>
+
 <div class="container">
 
          <br>
@@ -8,10 +17,12 @@
             </div>
         <br>
         <?php foreach ($tasks as $task) {
-            $cardColor = $task['task_type'] == 'required' ? 'danger' : 'success';
-        ?>
+            $cardColor = $task['task_type'] == 'required' ? 'success' : 'success';
 
-        <div class="row bg-<?php echo($cardColor); ?> rounded mt-2" >
+            $hasImage = $task['img_path'] ? true : false; 
+        ?>
+        <?php //echo($cardColor); ?> 
+        <div class="row colorcardGreen rounded mt-2" >
 
           <div class="col-6 mt-2">
               <span class="badge badge-light p-1"><?php echo $task['schedule_type']; ?></span>
@@ -19,10 +30,10 @@
 
           <div class="col-6 text-right mt-2 ">
 
-                    <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageModal" style="display:none"> 
+                    <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageModal<?php echo($task['id']) ?>" style="display: <?php echo $hasImage ? '' : 'none'; ?>"> 
                             <i class="fa fa-eye" aria-hidden="true"></i> <span></span>
                     </a> 
-                    <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#upload<?php echo($task['id']) ?>"> 
+                    <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#upload<?php echo($task['id']) ?>" style="display:  <?php echo $hasImage ? 'none' : ''; ?>" > 
                         <i class="fa fa-upload" aria-hidden="true"></i> <span></span>
                     </a> 
                       
@@ -61,8 +72,11 @@
 
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary mytask-upload">Upload</button>
+                        <div class="alert alert-danger report-image-alert" role="alert" style="display: none;">
+                            <strong>Image is Outdated</strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary mytask-upload">Upload</button>
                   </div>
                 </form>
                 </div>
@@ -70,7 +84,7 @@
           </div>
     </div>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="imageModal<?php echo($task['id']) ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div style="margin-top:20%" class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -80,7 +94,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="../../assets/img//taskImage/1615446133-2-4-bungee-making-coffee.jpg" alt="" style="width:100%">
+                    <img src="../../assets/img<?php echo $task['img_path']; ?>" alt="" style="width:100%">
                 </div>
             </div>
         </div>
