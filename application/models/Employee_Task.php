@@ -15,7 +15,7 @@ class Employee_Task extends CI_Model
      public function getByUser($nowDate,$user_id){
 
 
-        $this->db->select('employee_task.id as `id`, employee_task.image_path as `image_path`, employee_task.status as `status`, employee_task.created_date as `created_date`, employee_task.task_id as `task_id`,  task.name as `task_name`, task.description as `task_desc`, task.task_type as `task_type`,schedule_type.name as `schedule_type`  ');
+        $this->db->select('employee_task.id as `id`, employee_task.img_path as `img_path`, employee_task.status as `status`, employee_task.created_date as `created_date`, employee_task.task_id as `task_id`,  task.name as `task_name`, task.description as `task_desc`, task.task_type as `task_type`,schedule_type.name as `schedule_type`  ');
         $this->db->from('employee_task');
         $this->db->join('task','task.id = employee_task.task_id');
         $this->db->join('checklist','checklist.id = task.checklist_id');
@@ -81,10 +81,14 @@ class Employee_Task extends CI_Model
 
     }
 
-    public function uploadImage(){
+    public function uploadImage($data){
 
-        print_r($_FILES['employee-upload-image']);
+        $this->db->set('img_path',$data['img_path']);
+        $this->db->where('id', $data['id']);
+        $this->db->update('employee_task');
+        $this->db->trans_complete();
 
+        return $this->db->affected_rows();
     }
 
 }

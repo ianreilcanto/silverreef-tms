@@ -8,6 +8,7 @@
                 .colorBlue { background-color: #01a9b4;}
 				.colorGrey { background-color: #6c7b95;}
 				.colorlightGrey { background-color: #797a7e;}
+				.colorlightBlue { background-color: #5e73c7;}
 
                 
 
@@ -32,7 +33,7 @@
 		
 	<div class="row">
 		<div class="col text-center mt-3">
-		<a class="btn colorlightGrey text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/takeOrder"> 
+		<a class="btn colorlightBlue text-light font-weight-light employee-btn mt-3 p-3" href="/dashboard/takeOrder"> 
 		       <i class="fa fa-th-list"></i>
 		       <br>
 		       <span>Take Order</span>
@@ -56,14 +57,14 @@
 		       <span>My Tasks</span>
 		    </a>
 
-			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#"> 
+			<a class="btn colorlightBlue text-light employee-btn mt-3 p-3" href="#"> 
 				<i class="fa fa-file-alt"></i>
 				<br>
 				<span>Request</span> 
 			</a> 
  			
 
-			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
+			<a class="btn colorlightGrey text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
 				<i class="fa fa-file-alt"></i>
 				<br>
 				<span>Report</span> 
@@ -71,7 +72,7 @@
  			
 		  
 		  	  
-			<a class="btn bg-gradient-warning text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
+			<a class="btn colorBlue text-light employee-btn mt-3 p-3" href="/dashboard/createTask" style="display: <?php echo $isAdmin; ?>" > 
 				<i class="fa fa-file-alt"></i>
 				<br>
 				<span>Create Task</span> 

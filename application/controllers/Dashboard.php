@@ -246,19 +246,13 @@ class Dashboard extends CI_Controller
         // [sec] 
         // [checklist_id]
 
+        // echo "<pre>";
+        // print_r($tasks);
+
         $this->load->view('dashboard/common/header');
         $this->load->view('dashboard/common/topbar');
         $this->load->view('dashboard/employee/mytask',$data);
         $this->load->view('dashboard/common/footer');
-    }
-
-
-    public function upload_emplyee_task_image(){
-
-        $data = json_decode($_POST['uploadData'],true);
-
-        print_r($_FILES);
-      
     }
 
     public function takeOrder(){
@@ -270,6 +264,15 @@ class Dashboard extends CI_Controller
 
     }
 
+    public function createTask(){
+
+        $this->load->view('dashboard/common/header');
+        $this->load->view('dashboard/common/topbar');
+        $this->load->view('dashboard/admin/createTask');
+        $this->load->view('dashboard/common/footer');
+
+    }
+
 
     public function test(){
         require_once 'vendor/autoload.php';
@@ -277,6 +280,8 @@ class Dashboard extends CI_Controller
 
       $sms = $textko->send('09171635669', 'test');
     }
+
+
 
 
     public function test2(){
