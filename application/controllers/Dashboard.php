@@ -300,5 +300,13 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/order');
 
     }
+
+    public function reports(){
+
+        $this->load->view('dashboard/reports');
+
+
+
+    }
     
 }
