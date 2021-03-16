@@ -128,6 +128,8 @@
                     </div>
             </div>
 
+
+<!-- loop here -->
             <div class="row">
 
                      <div class="col 4">
@@ -206,10 +208,10 @@
                         </div>
                 </div>
 
+<!-- end loop -->
 
 
-
-
+<!-- this is a test -->
 
 </div>
 <!-- end of container -->
