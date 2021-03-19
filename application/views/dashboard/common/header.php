@@ -19,7 +19,7 @@
           background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-size: 102%;
+            background-size: 100%;
            
             position: relative;
 
