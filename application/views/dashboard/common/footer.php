@@ -1,8 +1,10 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white footer">
+<footer class="sticky-footer bg-light footer">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Silver Reef Dive Resort <?= date('Y'); ?></span>
+            <span>Copyright &copy; SOS.NET <?= date('Y'); ?>-22.Exclusive Program For Silver Reef Dive Resort</span>
+            
+              
         </div>
     </div>
 </footer>
@@ -12,7 +14,7 @@
 <!-- End of Content Wrapper -->
 
 </div>
-<!-- End of Page Wrapper -->
+<!-- End of Page Wrapper  -->
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
@@ -140,7 +142,7 @@
 
         </script>
 
-
+</div>
 </body>
 
 </html>

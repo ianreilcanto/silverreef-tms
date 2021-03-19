@@ -12,6 +12,25 @@
     <title></title>
 
     <style type="text/css">
+        body{
+        /* background-image: url("../../../assets/img/logos/silver_bg.jpg") !important; */
+         background: url("../../../assets/img/logos/silver_seahorse.png");
+         
+          background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-size: 102%;
+           
+            position: relative;
+
+                      
+            
+    
+        }
+        #wrapper #content-wrapper{
+            background-color: transparent !important;
+            
+        }
         html,body,#wrapper {
                 height: 100%;
             }
@@ -31,6 +50,12 @@
             width: 200px;
         }
 
+        .marker{
+            color: #4e73df!important;
+        }
+
+        .colorlightGrey { background-color: #797a7e;}
+
     </style>
 
     <!-- Custom fonts for this template-->
@@ -41,17 +66,14 @@
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
     <!-- <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
 
-      <style type="text/css">
-        .marker{
-            color: #4e73df!important;
-        }
-
-        .colorlightGrey { background-color: #797a7e;}
-    </style>
-
 </head>
 
-<body id="page-top" class="colorlightGrey">
+<body id="page-top">
+
+  
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+        <!-- content-wrapper -->
+     <div id="content-wrapper">

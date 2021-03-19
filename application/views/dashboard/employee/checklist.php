@@ -15,19 +15,36 @@
 </style>
 
 <div class="container">
-    <br>
-    <div class="row">
+   
+    <div class="row mt-2">
         <div class="col text-center">
             <h1>Checklist</h1>
         </div>
     </div>
-    <br>
+<!-- 
+    <div class="row">
+        <div class="col text-center">
+        <img class="rounded " src="../../../assets/img/logos/brewbox.png" href="#" style="width:30%" />   
+        </div>
+    </div> -->
+    
+    <div class="row">
+        <div class="col text-center">
+        <img class="rounded " src="../../../assets/img/logos/bungee.png" href="#" style="width:30%" />   
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col text-center">
+        <img class="rounded " src="../../../assets/img/logos/scoot.png" href="#" style="width:30%" />   
+        </div>
+    </div> -->
     <?php if(isset($default_station)){ ?>
     <input type="hidden" name="default_station" value="<?php echo $default_station; ?>" id="default_station">
     <?php } ?>
-    <div class="row">
+    <div class="row mt-3">
         <div class="col" style=" display : <?php echo  $hasStations ? "block" : "none"; ?>">
-           <div class="input-group mb-3">
+           <div class="input-group">
                   <div class="input-group-prepend">
                         <label class="input-group-text border-0 colorlightGrey text-light" for="slc-employee-station">Type</label>
                   </div>
