@@ -25,8 +25,9 @@ date_default_timezone_set("Asia/Manila");
 */
 
 
-$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+$host = 'https://'.$_SERVER['HTTP_HOST'].'/';
 $config['base_url'] = $host;
+
 
 /*
 |--------------------------------------------------------------------------
