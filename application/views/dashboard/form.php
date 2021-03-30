@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
 </head>
 
@@ -23,6 +24,12 @@
                 .colorGrey { background-color: #6c7b95;}
                 .colorlightGrey { background-color: #797a7e;}
                 .colorbody { background-color: #e4e4e4;}
+
+				#birthDate,#startDate{
+					background: #fff;
+					padding: 0 10px;
+				}
+
 </style>
 
 <!-- stat container -->
@@ -50,7 +57,7 @@
                                 <div class="form-group">
                                      <!-- <label for="address">Address</label> -->
                                      <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-                                         <input type="tex" class="form-control border-0" id="birthDate" placeholder="Birth Date" data-type="datepicker" data-guid="5f0f6aad-8b2f-ef63-0193-cd27b6cf851a" data-datepicker="true" role="input" required>
+                                         <input autocomplete="off" type="tex" class="form-control border-0" id="birthDate" placeholder="Birth Date" required>
                                          <span class="input-group-append" role="right-icon">
                                              <button class="btn colorcardRed border-left-0" type="button">
                                                 <i class="fa fa-calendar text-light"></i>
@@ -87,7 +94,7 @@
                 				 <div class="form-group">
 									 <!-- <label for="lname">Last Name</label> -->
 									     <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
-                                                <input type="tex" class="form-control" id="startDate" placeholder="Start Date" data-type="datepicker" data-guid="81088d49-1baa-94bf-ee2f-a3f5c7d6f58a" data-datepicker="true" role="input" required>
+                                                <input autocomplete="off" type="tex" class="form-control" id="startDate" placeholder="Start Date" required>
                                                  <span class="input-group-append" role="right-icon">
                                                     <button class="btn colorcardRed border-left-0" type="button">
                                                          <i class="fa fa-calendar text-light"></i>
@@ -102,17 +109,12 @@
 											  </div>
 											  <select class="custom-select border-0" id="employee-department">
 												    <option value="0" selected="">Select</option>
+													<?php foreach ($departments as $department) { ?>
+														<!-- <option value="1">F&B</option> -->
+														<option value="<?php echo $department['id'];  ?>"><?php echo $department['name'];  ?></option>
 
-                                                                                                                <!-- <option value="1">F&B</option> -->
-                                                            <option value="1">FO</option>
-
-                                                                                                                <!-- <option value="1">F&B</option> -->
-                                                            <option value="2">F&amp;B</option>
-
-                                                                                                                <!-- <option value="1">F&B</option> -->
-                                                            <option value="3">Landscaping</option>
-
-                                                    											  </select>
+													<?php } ?>
+                                               </select>
 										</div>
 								 </div>
 								 <div class="form-group" id="employee-dept-position-div" style="display: none;">
@@ -151,21 +153,21 @@
                   
 </div>
 <!-- end of container -->
-    
-
-
-
-  
-  
-
-
- 
-
-
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+
+<script>
+	$('#startDate').datepicker();
+
+	$('#birthDate').datepicker();
+	console.log('asdasd');
+</script>
+
+
 </body>
 
 </html>
