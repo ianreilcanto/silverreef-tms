@@ -28,6 +28,7 @@
 				#birthDate,#startDate{
 					background: #fff;
 					padding: 0 10px;
+					border-bottom: 0px !important;
 				}
 
 </style>
@@ -37,9 +38,19 @@
                         
                         <div class="col text-center mt-5">
                               <h3> <span class="badge colorlightGrey text-light font-weight-normal">Registration</span></h3> 
+
+							  <div class="alert alert-success employee-added" role="alert" style="display:none">
+								<h4 class="alert-heading"></h4>
+								<p>Employee has been added</p>
+							  </div>
+
+							  <!-- <div class="alert alert-danger" role="alert">
+								<h4 class="alert-heading"></h4>
+								<p>There is an Error on adding the employee</p>
+							  </div> -->
                         </div>
                         
-                    <form id="employee-form" class="mt-5" action="/action_page.php">
+                    <form id="employee-form" class="mt-5">
                 		<div class="row">
                 			<div class="col">
 		                		<div class="form-group">
@@ -153,8 +164,8 @@
                   
 </div>
 <!-- end of container -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
@@ -162,9 +173,131 @@
 
 <script>
 	$('#startDate').datepicker();
-
 	$('#birthDate').datepicker();
-	console.log('asdasd');
+
+	$('#add-employee').click(function(e){
+	e.preventDefault();
+
+	var formValues = $("#employee-form");
+
+	$employee = employeeFieldValidator(formValues);
+
+	  $.ajax({
+        url: "/employee/add",
+        type: "post",
+        data: $employee ,
+        success: function (response) {
+
+			if(response > 0){
+				$(".employee-added").show();
+
+				var millisecondsToWait = 2000;
+				setTimeout(function() {
+					$(".employee-added").hide();
+        			location.reload();
+
+				}, millisecondsToWait);
+			}
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
+});
+
+
+function employeeFieldValidator(formvalues){
+
+
+	employee = {
+
+		info : {
+
+			fname : formvalues.find("#fname").val(),
+			mname : formvalues.find("#mname").val(),
+			lname : formvalues.find("#lname").val(),
+			birthDate : formvalues.find("#birthDate").val(),
+			address : formvalues.find("#address").val(),
+			city : formvalues.find("#city").val(),
+			province : formvalues.find("#province").val(),
+			country : formvalues.find("#country").val(),
+			zipcode : formvalues.find("#zipcode").val(),
+			startDate : formvalues.find("#startDate").val(),
+			department : formvalues.find("#employee-department").val(),
+			position : formvalues.find("#employee-dept-position").val(),
+
+		},
+		credentials : {
+
+			username : formvalues.find("#username").val(),
+			password : formvalues.find("#password").val(),
+			email : formvalues.find("#email").val(),
+			contactNumber : formvalues.find("#contactNumber").val(),
+
+		}
+
+
+
+	}
+
+
+	return employee;
+
+
+
+}
+
+$("#employee-department").on("change",function(){
+	$data = {};
+	let val = $(this).val();
+
+	$data['deptId'] = val;
+
+	$.ajax({
+        url: "/department/getPosition",
+        type: "post",
+        data: $data ,
+        success: function (response) {
+
+        	$position = JSON.parse(response);
+
+        	if($position.length > 0){
+
+        		$('#employee-dept-position-div').show();
+        		
+        		$('#employee-dept-position').children().remove();
+
+        		$optionTemplate = `<option value='0'>Choose...</option>`;
+
+        		for (var i = 0; i < $position.length; i++) {
+        			
+        			$optionTemplate += `<option value='${ $position[i].id }'> ${ $position[i].name } </option>`;
+        				
+        		}
+
+        		$('#employee-dept-position').append($optionTemplate);
+
+        	}else{
+        		$('#employee-dept-position-div').hide();
+        		$('#employee-dept-position option[value=0]').attr('selected','selected');
+        	}
+
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
+});
+
+
+
+
 </script>
 
 
