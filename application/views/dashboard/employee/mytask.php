@@ -20,14 +20,22 @@
             $cardColor = $task['task_type'] == 'required' ? 'success' : 'success';
 
             $hasImage = $task['img_path'] ? true : false; 
+            $isRepairable = $task['isRepairable'] ? true : false; 
+
         ?>
         <?php //echo($cardColor); ?> 
         <div class="row colorcardGreen rounded mt-2" >
 
           <div class="col-6 mt-2">
               <span class="badge badge-light p-1"><?php echo $task['schedule_type']; ?></span>
+              <input type="hidden" value="<?php echo $task['task_name']; ?>" class="mytask_task_name<?php echo($task['id']); ?>">
+              <input type="hidden" value="<?php echo $task['id']; ?>" class="mytask_task_id<?php echo($task['id']); ?>">
+              <a class="btn btn-light btn-sm send-fix-sms" attr-id="<?php echo($task['id']); ?>" style="display: <?php echo $isRepairable ? '' : 'none'; ?>"> 
+                <i class="fa fa-wrench" aria-hidden="true"></i> <span></span>
+              </a> 
           </div>
 
+        
           <div class="col-6 text-right mt-2 ">
 
                     <a class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageModal<?php echo($task['id']) ?>" style="display: <?php echo $hasImage ? '' : 'none'; ?>"> 
@@ -40,7 +48,7 @@
           </div> 
           <div class="col-12">
               <a class="text-light" data-toggle="collapse" href="#task<?php echo($task['id']); ?>" role="button" aria-expanded="false" aria-controls="task<?php echo($task['id']); ?>"> 
-                  <h5><?php echo $task['task_name']; ?>(Sec)</h5>
+                  <h5><?php echo $task['task_name']; ?></h5>
               </a>
           </div>
           <div class="col-12 collapse bg-light pt-2" id="task<?php echo($task['id']); ?>">

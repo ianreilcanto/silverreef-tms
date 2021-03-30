@@ -90,13 +90,14 @@ class Dashboard extends CI_Controller
         //use department to fetch the checklist
         //if department has station filter the checklist by station
 
-
+        
         
         if(count($data['checklists']) > 0)
          $data['default_station'] = $data['checklists'][0]['station_id'];
 
-         //  echo "<pre>";
-         // print_r($data);
+        //   echo "<pre>";
+        //   echo $department_id;
+        //  print_r($accomplished_task);
 
         // //base_url('auth');
         $this->load->view('dashboard/common/header');
@@ -249,6 +250,7 @@ class Dashboard extends CI_Controller
         // echo "<pre>";
         // print_r($tasks);
 
+
         $this->load->view('dashboard/common/header');
         $this->load->view('dashboard/common/topbar');
         $this->load->view('dashboard/employee/mytask',$data);
@@ -279,6 +281,18 @@ class Dashboard extends CI_Controller
       $textko = new Textko\Sms('eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjZmMGY0MDYyMDFhNjNjNWFmYzk3MDBhMGIyNTk5ODAyZjM5NDcyZjk1YWNjMDMwNDMzNzZmYjkyMzIzZDVhODE3MzQzMDYzZTRmZTMyNTQiLCJpYXQiOjE2MTE2MDIwMzIsIm5iZiI6MTYxMTYwMjAzMiwiZXhwIjoxNjQzMTM4MDMyLCJzdWIiOiIxMzE2NyIsInNjb3BlcyI6W119.n7sh0NerTGiaXZCTBbGJllmRZpkuxEd8CPj5UEcsLvLhjXrGr5sZEORIvKee93mTCKvv8iW6mCO5dQWHNlk2AGFmVg4MHxbicaBZV72VqRgEk01T4uMg37MtP_H-bcHYEBdHUS5iIrLvX3yWl0Kl4kqxK3LEhFlGnNPgQH9uA0s_1mI0_BnBYzDuegn276MU7xLsUWFXZKwXfZZMk4sM_UMbMhjygSX7-s8Vzm9GAkWbRIaBvX4McNdoWzgmBw74ArMFe2MUDioOeL_YNJsBCvcJaz7MV3xIk6AtqOp4RXuRwb0s38YZhHI9ye2GbpFO5d5U4iFfjjiCl8Y7k6phDMO1hVknCLaxKK1oOG3KvmU1-qGyCoidiZkCwqyq_Btp9RBIITOVSY2_-hjVWYuPK7c2gKaliLzJCv2lC0-uSFaIu1YcfOgkbFTPRPhIGfUwVJd6HRNnmhlVgziv6fkmcT_qNSOlSvZyxIKNtbg0BXloyab19YRhAgly43IYzG0hWqAQkRJKMknmfQayRFnUQoy-fwpOYzRc9VFCs2ZaZEkUIfI0Tjyh3yGIBCsnr0TIvrc9sO6UrwMUodnyq2TkbJt5iyaN3hvXhs8dpBSfZXDZuydD58YXN4okEvl2oQoJmz7m-HUAcoITjyahen3c3erL71Sw7Jw3Cw5dXSpHQc8');
 
       $sms = $textko->send('09171635669', 'test');
+    }
+
+    public function sendToMaintenace(){
+
+
+    // require_once 'vendor/autoload.php';
+    //   $textko = new Textko\Sms('eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjZmMGY0MDYyMDFhNjNjNWFmYzk3MDBhMGIyNTk5ODAyZjM5NDcyZjk1YWNjMDMwNDMzNzZmYjkyMzIzZDVhODE3MzQzMDYzZTRmZTMyNTQiLCJpYXQiOjE2MTE2MDIwMzIsIm5iZiI6MTYxMTYwMjAzMiwiZXhwIjoxNjQzMTM4MDMyLCJzdWIiOiIxMzE2NyIsInNjb3BlcyI6W119.n7sh0NerTGiaXZCTBbGJllmRZpkuxEd8CPj5UEcsLvLhjXrGr5sZEORIvKee93mTCKvv8iW6mCO5dQWHNlk2AGFmVg4MHxbicaBZV72VqRgEk01T4uMg37MtP_H-bcHYEBdHUS5iIrLvX3yWl0Kl4kqxK3LEhFlGnNPgQH9uA0s_1mI0_BnBYzDuegn276MU7xLsUWFXZKwXfZZMk4sM_UMbMhjygSX7-s8Vzm9GAkWbRIaBvX4McNdoWzgmBw74ArMFe2MUDioOeL_YNJsBCvcJaz7MV3xIk6AtqOp4RXuRwb0s38YZhHI9ye2GbpFO5d5U4iFfjjiCl8Y7k6phDMO1hVknCLaxKK1oOG3KvmU1-qGyCoidiZkCwqyq_Btp9RBIITOVSY2_-hjVWYuPK7c2gKaliLzJCv2lC0-uSFaIu1YcfOgkbFTPRPhIGfUwVJd6HRNnmhlVgziv6fkmcT_qNSOlSvZyxIKNtbg0BXloyab19YRhAgly43IYzG0hWqAQkRJKMknmfQayRFnUQoy-fwpOYzRc9VFCs2ZaZEkUIfI0Tjyh3yGIBCsnr0TIvrc9sO6UrwMUodnyq2TkbJt5iyaN3hvXhs8dpBSfZXDZuydD58YXN4okEvl2oQoJmz7m-HUAcoITjyahen3c3erL71Sw7Jw3Cw5dXSpHQc8');
+
+    //   $sms = $textko->send('09171635669', 'Maintenance Team - '.$_POST['taskname'].' needs to be fixed(test message)');
+    //   $sms = $textko->send('09163751304', 'Maintenance Team - '.$_POST['taskname'].' needs to be fixed(test message)');
+    //   $sms = $textko->send('09561974912', 'Maintenance Team - '.$_POST['taskname'].' needs to be fixed(test message)');
+
     }
 
 

@@ -21,24 +21,24 @@
             <h1>Checklist</h1>
         </div>
     </div>
-<!-- 
-    <div class="row">
+
+    <div class="row logo-brew" style="display: none;">
         <div class="col text-center">
         <img class="rounded " src="../../../assets/img/logos/brewbox.png" href="#" style="width:30%" />   
         </div>
-    </div> -->
+    </div>
     
-    <div class="row">
+    <div class="row logo-bungee" style="display: none;">
         <div class="col text-center">
         <img class="rounded " src="../../../assets/img/logos/bungee.png" href="#" style="width:30%" />   
         </div>
     </div>
 
-    <!-- <div class="row">
+    <div class="row logo-scoot" style="display: none;">
         <div class="col text-center">
         <img class="rounded " src="../../../assets/img/logos/scoot.png" href="#" style="width:30%" />   
         </div>
-    </div> -->
+    </div>
     <?php if(isset($default_station)){ ?>
     <input type="hidden" name="default_station" value="<?php echo $default_station; ?>" id="default_station">
     <?php } ?>
