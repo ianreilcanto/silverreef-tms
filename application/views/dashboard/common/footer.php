@@ -85,7 +85,9 @@
 
              
                  form_data.append('uploadData', JSON.stringify($uploadData));
-
+                 
+                 $('.mytask-upload').prop('disabled', true);
+                 $('.mytask-upload-loader').show();
              
                  $.ajax({
                      url: '/EmployeeTask/upload_emplyee_task_image', // point to server-side PHP script 
@@ -98,8 +100,10 @@
                      async:false,       
                      success: function(php_script_response){
                         
-                        if(php_script_response = 'success')
+                        if(php_script_response = 'success'){
+                            
                             location.reload();
+                        }
 
                      }
                   });

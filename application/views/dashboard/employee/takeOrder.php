@@ -26,13 +26,13 @@
 <div class="container">
             <div class="col text-center" style="margin-top:15%">
 
-                <h1 class="text-secondary font-weight-normals">
+                <h1 class="text-light font-weight-normals">
                     Serving A Guest
                 </h1>          
             </div>
         
             <div class="col text-center" style="margin-top:15%"> 
-                     <h1 id="currentTime" class="text-secondary font-weight-normal">
+                     <h1 id="currentTime" class="text-light font-weight-normal">
                        
                     </h1>
             </div>
