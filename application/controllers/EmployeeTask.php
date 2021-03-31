@@ -62,7 +62,8 @@ class EmployeeTask extends CI_Controller {
                 $sourcePath = $file['tmp_name'];
                 //change file name and add department folder
                 $targetPath = './assets/img/reportImage/' . $filename; // The Target path where file is to be stored
-                move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
+                //move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
+                $this->compressImage($sourcePath,$targetPath,60);
                
               }
           //}
@@ -70,6 +71,23 @@ class EmployeeTask extends CI_Controller {
             echo "no image";
         }
     }
+
+    function compressImage($source, $destination, $quality) {
+
+        $info = getimagesize($source);
+      
+        if ($info['mime'] == 'image/jpeg') 
+          $image = imagecreatefromjpeg($source);
+      
+        elseif ($info['mime'] == 'image/gif') 
+          $image = imagecreatefromgif($source);
+      
+        elseif ($info['mime'] == 'image/png') 
+          $image = imagecreatefrompng($source);
+      
+        imagejpeg($image, $destination, $quality);
+      
+      }
 
 
 }

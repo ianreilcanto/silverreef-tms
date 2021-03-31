@@ -257,6 +257,20 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/common/footer');
     }
 
+    public function reports(){
+        $count = $this->checklist->getCountChecklistByDept($_SESSION['department_id']);
+
+        $data['count'] =  $count;
+
+        $this->load->view('dashboard/common/header');
+        $this->load->view('dashboard/common/topbar');
+        $this->load->view('dashboard/reports',$data);
+        //$this->load->view('dashboard/employee/mytask',$data);
+        $this->load->view('dashboard/common/footer');
+
+       // print_r($count);
+    }
+
     public function takeOrder(){
 
         $this->load->view('dashboard/common/header');
@@ -315,12 +329,10 @@ class Dashboard extends CI_Controller
 
     }
 
-    public function reports(){
+    // public function reports(){
 
-        $this->load->view('dashboard/reports');
+    //     $this->load->view('dashboard/reports');
 
-
-
-    }
+    // }
     
 }

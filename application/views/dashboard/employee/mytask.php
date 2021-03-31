@@ -83,6 +83,14 @@
                         <div class="alert alert-danger report-image-alert" role="alert" style="display: none;">
                             <strong>Image is Outdated</strong>
                         </div>
+                        <div class="mytask-upload-loader" style="display:none">
+                            <span>Uploading Image</span>
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <span>Please wait...</span>
+                        </div>
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary mytask-upload">Upload</button>
                   </div>
