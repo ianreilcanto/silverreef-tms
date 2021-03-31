@@ -59,6 +59,22 @@ class Employee_Task extends CI_Model
 
     }
 
+    public function countCompletedTask($nowDate,$dept){
+
+
+        // use in array for checking and displaying checklist task
+        $this->db->select('task_id');
+        $this->db->from('employee_task');
+        $this->db->join('task','task.id = employee_task.task_id');
+        $this->db->join('checklist','checklist.id = task.checklist_id');
+        $this->db->where('checklist.checklist_type', 'daily');
+        $this->db->where('created_date', $nowDate);
+        $this->db->where('employee_task.department_id', $dept);
+
+        return $query = $this->db->get()->result_array(); 
+
+    }
+
     public function checkTask($nowDate, $task_id){
 
         $this->db->select('*');
