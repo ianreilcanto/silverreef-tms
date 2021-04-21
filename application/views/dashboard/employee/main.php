@@ -64,7 +64,7 @@
 			</a> 
  			
 
-			<a class="btn colorlightGrey text-light employee-btn mt-3 p-3" href="#" style="display: <?php echo $isAdmin; ?>" > 
+			<a class="btn colorlightGrey text-light employee-btn mt-3 p-3" href="/dashboard/reports" style="display: <?php echo $isAdmin; ?>" > 
 				<i class="fa fa-file-alt"></i>
 				<br>
 				<span>Report</span> 

@@ -47,11 +47,27 @@ class Checklist_Task extends CI_Model
         $this->db->from('checklist');
         $this->db->join('schedule_type','schedule_type.id = checklist.schedule_type_id');
         $this->db->where('department_id', $deptId);
+        $this->db->where('checklist_type', 'daily');
         $result = $this->db->get();
 
         return $result->result_array();
 
     }
+
+    //add filter by daily weekly and monthly
+    public function getCountChecklistByDept($deptId){
+
+        $this->db->select(' count(checklist.id) as count ');
+        $this->db->from('checklist');
+        $this->db->join('schedule_type','schedule_type.id = checklist.schedule_type_id');
+        $this->db->where('department_id', $deptId);
+        $this->db->where('checklist_type', 'daily');
+        $result = $this->db->get();
+
+        return $result->result_object()[0]->count;
+
+    }
+
 
 
     public function getWeeklyChecklistByDept($deptId){

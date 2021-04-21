@@ -29,7 +29,7 @@
 								 </div>
                                 <div class="form-group">
                                      <!-- <label for="address">Address</label> -->
-                                     <input type="tex" class="form-control" id="birthDate" placeholder="Birth Date">
+                                     <input autocomplete="off" type="tex" class="form-control" id="birthDate" placeholder="Birth Date">
                                  </div>
 								 <div class="form-group">
 									 <!-- <label for="address">Address</label> -->
@@ -59,7 +59,7 @@
                                  </div>
                 				 <div class="form-group">
 									 <!-- <label for="lname">Last Name</label> -->
-									 <input type="tex" class="form-control" id="startDate" placeholder="Start Date">
+									 <input autocomplete="off" type="tex" class="form-control" id="startDate" placeholder="Start Date">
 								 </div>
                 				 <div class="form-group">
 										<div class="input-group mb-3">
@@ -111,50 +111,6 @@
     		</div>
     	</div>
     </div>
-<!-- 
-    <div class="row">
- 
-    	<div class="col">
-    		
-    		<div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Memo Management</h6>
-                </div>
-                <div class="card-body">
 
-                	<div class="input-group mb-3">
-						  <div class="input-group-prepend">
-						    	<label class="input-group-text" for="deptSelect">Department</label>
-						  </div>
-						  <select class="custom-select" id="deptSelect">
-							    <option selected>Choose...</option>
-							    <option value="1">F&B</option>
-							    <option value="2">HK</option>
-						  </select>
-					</div>
-
-					<form>
-						  <div class="input-group mb-3">
-								  <div class="input-group-prepend">
-								    	<label class="input-group-text" for="deptSelect">Search Employee</label>
-								  </div>
-								   <input type="tex" class="form-control" id="startDate" placeholder="pop-up modal to create memo">
-							</div>
-						  <button type="submit" class="btn btn-primary">
-						  	<i class="fa fa-plus"></i>
-						  	Create Memo
-						  </button>
-					</form>
-              </div>
-        	</div>
-
-    	</div>
-    </div> -->
-
-
-    
 </div>
 <!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content
