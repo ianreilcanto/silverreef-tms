@@ -4,8 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Dashboard extends CI_Controller
 {
 
-
-
+   
     //security
     public function __construct()
     {
@@ -38,6 +37,7 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/common/topbar');
         $this->load->view('dashboard/employee/main',$data);
         $this->load->view('dashboard/common/footer');
+
 
     }
 
@@ -308,5 +308,21 @@ class Dashboard extends CI_Controller
 
 
     }
+    
+    public function editChecklist(){
+
+        $this->load->view('dashboard/editChecklist');
+
+
+
+    }
+    public function table(){
+
+        $this->load->view('dashboard/table');
+
+
+
+    }
+    
     
 }
