@@ -1,19 +1,23 @@
 
-</div>
 <!-- End of Content Wrapper -->
 
 
+</div>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
+    <div class="container mt-auto">
+        <div class="copyright text-center mt-auto">
             <span>Copyright &copy; Silver Reef Dive Resort <?= date('Y'); ?></span>
         </div>
     </div>
 </footer>
 <!-- End of Footer -->
+
+
 </div>
+
 <!-- End of Page Wrapper -->
+
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">

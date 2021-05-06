@@ -14,7 +14,7 @@
 	<div class="container">
                         
                      	 <div class="col text-center mt-5">
-                              <h3> <span class="badge colorlightGrey text-light font-weight-normal">Learning Management</span></h3> 
+                              <h3><span class="badge colorlightGrey text-light font-weight-normal">Learning Management</span></h3> 
                         </div>
                         
                 <form id="employee-form" class="mt-5" action="/action_page.php">
