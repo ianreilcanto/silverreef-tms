@@ -1,12 +1,13 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-code"></i>
+            <!-- <i class="fas fa-code"></i> -->
+            <img src="/assets/img/logos/silver.png" width="50" height="50" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">SRDR</div>
+        <div class="sidebar-brand-text mx-3 font-weight-normal">SRDR</div>
     </a>
 
     <!-- Divider -->
@@ -43,7 +44,22 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Checklist Management:</h6>
                     <a class="collapse-item" href="/admin/checklist">Manage</a>
-                    <a class="collapse-item" href="#">View Checklist</a>
+                    <a class="collapse-item" href="/admin/editChecklist">View and Update</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#addLearning"
+                aria-expanded="true" aria-controls="addLearning">
+                <i class="fas fa-fw fa-check-square"></i>
+                <span>Learning</span>
+            </a>
+            <div id="addLearning" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Learning Management:</h6>
+                    <a class="collapse-item" href="/admin/addLearning">Add</a>
+                    <a class="collapse-item" href="/admin/updateLearning">Update</a>
                 </div>
             </div>
         </li>

@@ -129,6 +129,60 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+    // start new function added Paul 
+    public function addLearning(){
+
+        $data['title'] = 'Learning';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin//dashboard/addLearning', $data);
+        $this->load->view('templates/footer');
+       
+       
+    }
+
+    public function updateLearning(){
+
+        $data['title'] = 'Learning';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin//dashboard/updateLearning', $data);
+        $this->load->view('templates/footer');
+       
+       
+    }
+    public function editChecklist(){
+
+        $data['title'] = 'EditChecklist';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin//dashboard/editChecklist', $data);
+        $this->load->view('templates/footer');
+       
+    }
+
+    public function addTask(){
+
+        $data['title'] = 'AddTask';
+
+        $this->load->view('admin//dashboard/addTask');
+        
+    }
+        //end function added Paul
+    public function editParent(){
+
+        $data['title'] = 'EditParent';
+
+        $this->load->view('admin//dashboard/editParent');
+    }
+
+
 
 
 }
