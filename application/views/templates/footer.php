@@ -49,7 +49,7 @@
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-<script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
 <script src="<?= base_url('assets/'); ?>js/scripts.js"></script>
 <script src="<?= base_url('assets/'); ?>js/employee.js"></script>
