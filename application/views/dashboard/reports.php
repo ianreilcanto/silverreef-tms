@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Reports</title>
-</head>
-
-
-
-<body class="colorbody">
-
 
 <style>
                 .colorbg { background-color: #19d3da; }
@@ -49,11 +34,11 @@
                 </select>
             </div>
 
-             
+<!--              
             <div class="input-group mt-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text border-0 colorlightGrey text-light font-weight-normal" for="departmentID">Station</label>
-                    </div>
+                <div class="input-group-prepend">
+                    <label class="input-group-text border-0 colorlightGrey text-light font-weight-normal" for="departmentID">Station</label>
+                </div>
                 <select class="custom-select border-0" id="departmentID">
                     <option selected>Select</option>
                     <option value="1">Bungee Bar</option>
@@ -62,7 +47,7 @@
                     <option value="4">Working Personel</option>
                     
                 </select>
-            </div>
+            </div> -->
 
             <div class="input-group mt-3">
                     <div class="input-group-prepend">
@@ -95,15 +80,15 @@
                         
                         
                 <div class="row">
-                        <div class="col 8">
+                        <div class="col-9">
                             <div class="progress mt-3">
                                     <div class="progress-bar colorcardGreen" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                                     25%
                                     </div>
                             </div>
                         </div>
-                        <div class="col 4 text-center mt-2 text-secondary font-weight-normal">
-                            12/12
+                        <div class="col-3 text-center mt-2 text-secondary font-weight-normal">
+                            12/<?php echo $count; ?>
                         </div>
                 </div>
                        
@@ -207,7 +192,7 @@
                                 </div>
                         </div>
                 </div>
-
+    
 <!-- end loop -->
 
 
@@ -216,20 +201,3 @@
 </div>
 <!-- end of container -->
     
-
-
-
-  
-  
-
-
- 
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-
-</html>

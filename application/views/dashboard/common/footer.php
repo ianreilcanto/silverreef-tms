@@ -85,7 +85,9 @@
 
              
                  form_data.append('uploadData', JSON.stringify($uploadData));
-
+                 
+                 $('.mytask-upload').prop('disabled', true);
+                 $('.mytask-upload-loader').show();
              
                  $.ajax({
                      url: '/EmployeeTask/upload_emplyee_task_image', // point to server-side PHP script 
@@ -98,8 +100,10 @@
                      async:false,       
                      success: function(php_script_response){
                         
-                        if(php_script_response = 'success')
+                        if(php_script_response = 'success'){
+                            
                             location.reload();
+                        }
 
                      }
                   });
@@ -138,6 +142,31 @@
 
 
              }
+
+             $(".send-fix-sms").click(function(e){
+                 e.preventDefault();
+
+                 let id = $(this).attr("attr-id");
+
+                 let mytask_task_name = $('.mytask_task_name'+id).val();
+                 let mytask_task_id = $('.mytask_task_id'+id).val();
+
+
+                 $.ajax({
+                    url: '/Dashboard/sendToMaintenace', // point to server-side PHP script 
+                  //  dataType: 'text',  // what to expect back from the PHP script, if anything
+                    type: 'post',  
+                    data:  { taskname : mytask_task_name, task_id : mytask_task_id },  
+                    success: function(reponse){
+                       console.log(reponse);
+                    }
+
+                 });
+
+              
+            });
+
+             
 
 
         </script>

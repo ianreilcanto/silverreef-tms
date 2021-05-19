@@ -1,3 +1,18 @@
+
+
+<style>
+                .colorbg { background-color: #19d3da; }
+                .colorcardRed { background-color: #f05454;}
+                .colorcardGreen { background-color: #16c79a;}
+                .colorbody { background-color: #f6f5f5;}
+                .colorBlue { background-color: #01a9b4;}
+                .colorGrey { background-color: #6c7b95;}
+                .colorlightGrey { background-color: #797a7e;}
+                .colorbody { background-color: #e4e4e4;}
+</style>
+
+
+
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
@@ -5,13 +20,19 @@
     <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+        <nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top border-5">
+       
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
             </button>
-
+            <div class="row">
+    <div class="col font-weight-normal text-light">
+    Silver Reef Dive Resort
+    </div>
+   
+    
+  </div>
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
@@ -20,7 +41,7 @@
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ian Reil Canto</span>
+                        <span class="mr-2 d-none d-lg-inline text-light-600 small">Ian Reil Canto</span>
                         <!-- <img class="img-profile rounded-circle" src=""> -->
                     </a>
                     <!-- Dropdown - User Information -->
